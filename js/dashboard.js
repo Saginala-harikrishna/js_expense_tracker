@@ -86,7 +86,8 @@ searchBox.addEventListener('input', renderExpenses);
 sortOrder.addEventListener('change', renderExpenses);
 logoutBtn.addEventListener('click', () => {
   localStorage.removeItem('loggedInUser');
-  window.location.href = 'login.html';
+  alert("user logout");
+  window.location.href = 'index.html';
 });
 
 // === Core Functions ===
@@ -121,16 +122,19 @@ function renderExpenses() {
   });
 
   expensesList.innerHTML = '';
-  filtered.forEach((exp) => {
-    const div = document.createElement('div');
-    div.className = 'expense-item';
-    div.innerHTML = `
+filtered.forEach((exp) => {
+  const div = document.createElement('div');
+  div.className = 'expense-item';
+  div.innerHTML = `
+    <div class="expense-details">
       <p><strong>${exp.title}</strong> - $${exp.amount.toFixed(2)}</p>
       <p>${exp.category} | ${new Date(exp.date).toLocaleDateString()}</p>
-      <button onclick="deleteExpense(${exp.id})">🗑️</button>
-    `;
-    expensesList.appendChild(div);
-  });
+    </div>
+    <button onclick="deleteExpense(${exp.id})">🗑️</button>
+  `;
+  expensesList.appendChild(div);
+});
+
 }
 
 function deleteExpense(id) {

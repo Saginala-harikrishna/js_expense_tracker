@@ -6,61 +6,96 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background: #f8f9fa;
+  background: #f3f4f6;
   color: #222;
 }
 
 .topbar {
-  background: #fff;
+  background: #1f2937;
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid #e3e3e3;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.topbar h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #60a5fa;
 }
 
 .dashboard-container {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   gap: 1.5rem;
-  padding: 1.5rem 2rem;
+  padding: 2rem;
 }
 
-/* Add Expense Form */
+/* Panels */
 .add-expense,
 .overview,
-.settings {
+.settings,
+.expense-history,
+canvas {
   background: #fff;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
 }
 
-.add-expense h2,
-.overview h2,
-.settings h2,
-.expense-history h2 {
+.add-expense:hover,
+.overview:hover,
+.settings:hover {
+  transform: translateY(-2px);
+}
+
+h2 {
   margin-bottom: 1rem;
+  color: #1f2937;
+  font-size: 1.2rem;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 0.5rem;
 }
 
-.input,
+/* Form Controls */
+input,
 select {
   width: 100%;
-  padding: 0.5rem;
+  padding: 0.55rem;
   margin-top: 5px;
   margin-bottom: 1rem;
+  border-radius: 5px;
+  border: 1px solid #d1d5db;
+  background-color: #f9fafb;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.4);
 }
 
 .add-btn {
   width: 100%;
-  background-color: #2563eb;
+  background-color: #3b82f6;
   color: white;
   padding: 10px;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
 }
 
-/* Expense History List */
+.add-btn:hover {
+  background-color: #2563eb;
+}
+
+/* Expense History */
 .expense-history {
   grid-column: span 2;
 }
@@ -70,31 +105,69 @@ select {
 }
 
 .expense-card {
-  background: #fff;
-  padding: 1rem;
-  border-left: 5px solid #ccc;
+  background: #f9fafb;
+  border-left: 6px solid #60a5fa;
   border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 1rem;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.expense-card:hover {
+  transform: translateY(-2px);
+}
+
+.expense-details {
+  flex-grow: 1;
+}
+
+.expense-category {
+  font-weight: bold;
+  color: #374151;
+}
+
+.expense-meta {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.delete-btn {
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.delete-btn:hover {
+  background-color: #dc2626;
 }
 
 /* Budget Progress */
 .progress-bar {
-  height: 10px;
-  background-color: #e0e0e0;
+  height: 12px;
+  background-color: #e5e7eb;
   border-radius: 5px;
   margin: 10px 0;
+  overflow: hidden;
 }
 
 #progressFill {
-  height: 10px;
-  background-color: #2563eb;
+  height: 100%;
+  background-color: #10b981;
   border-radius: 5px;
   width: 0%;
+  transition: width 0.4s ease-in-out;
 }
 
-/* Charts */
+/* Charts Section */
 .charts {
   grid-column: span 2;
   display: flex;
@@ -103,21 +176,88 @@ select {
 }
 
 canvas {
-  background: #fff;
+  background: #f9fafb;
   padding: 1rem;
-  border-radius: 8px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* Budget Alert */
+#budgetWarning {
+  background-color: #fef2f2;
+  color: #b91c1c;
+  padding: 10px;
+  margin-bottom: 1rem;
+  border: 1px solid #fecaca;
+  border-radius: 5px;
+  font-weight: 600;
+  display: none;
 }
 
 /* Utility */
-.red { color: red; }
-.green { color: green; }
+.red {
+  color: #dc2626;
+}
+
+.green {
+  color: #10b981;
+}
 
 .clear-btn {
-  background-color: red;
+  background-color: #dc2626;
   color: white;
   padding: 0.75rem;
   width: 100%;
   margin-top: 1rem;
   border: none;
   border-radius: 5px;
+  font-weight: 600;
+  transition: background 0.2s ease;
 }
+
+.clear-btn:hover {
+  background-color: #b91c1c;
+}
+
+.expense-item {
+  background: #f1f5f9;
+  border-left: 5px solid #3b82f6;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: background 0.3s ease;
+}
+
+.expense-item:hover {
+  background: #e0f2fe;
+}
+
+.expense-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.95rem;
+}
+
+.expense-details p {
+  margin: 0;
+  color: #374151;
+}
+
+.expense-item button {
+  background: transparent;
+  border: none;
+  color: #ef4444;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.expense-item button:hover {
+  color: #b91c1c;
+}
+
