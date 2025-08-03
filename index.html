@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Expense Tracker - Login</title>
+  <link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- 👋 Left Side (Introduction) -->
+    <div class="intro">
+      <h1 class="app-title">💸 Expense Tracker</h1>
+      <p class="tagline">Track. Save. Succeed.</p>
+      <ul class="features">
+        <li>✅ Monitor your daily spending</li>
+        <li>📊 View detailed monthly reports</li>
+        <li>🔔 Get notified when budgets are exceeded</li>
+      </ul>
+    </div>
+
+    <!-- 🔐 Right Side (Login Form) -->
+    <div class="login-card">
+      <h2>Login to Your Account</h2>
+      <form id="loginForm"> <!-- ✅ ID changed from authForm to loginForm -->
+        <div class="input-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" placeholder="e.g. johndoe" required />
+        </div>
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="••••••••" required />
+        </div>
+        <button type="submit" id="loginBtn">Login</button>
+        <p class="switch-text">
+          Don’t have an account? <a href="register.html">Register here</a>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <!-- ✅ Add defer to make sure DOM is ready -->
+  <script src="js/login.js" defer></script>
+</body>
+</html>

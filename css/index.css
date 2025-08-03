@@ -1,0 +1,149 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  background: linear-gradient(to right, #e0f2f1, #e1f5fe);
+  color: #222;
+}
+
+
+ .container {
+     
+  display: flex;
+  justify-content: center;
+ padding: 150px;
+ gap: 60px;
+ 
+
+}
+
+.intro {
+ 
+  padding: 40px;
+}
+
+.app-title {
+  font-size: 40px;
+  font-weight: bold;
+  color: #00796b;
+}
+
+.tagline {
+  font-size: 18px;
+  margin-top: 10px;
+  color: #555;
+}
+
+.features {
+  list-style: none;
+  margin-top: 30px;
+}
+
+.features li {
+  margin-bottom: 12px;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Login Card Styling */
+.login-card {
+  flex: 1;
+  max-width: 400px;
+  background-color: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  animation: slideIn 0.6s ease;
+}
+
+.login-card h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  font-size: 14px;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  transition: border 0.3s ease;
+}
+
+.input-group input:focus {
+  border-color: #00796b;
+  outline: none;
+}
+
+#loginBtn {
+  width: 100%;
+  background-color: #00796b;
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#loginBtn:hover {
+  background-color: #004d40;
+}
+
+.switch-text {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.switch-text a {
+  color: #00796b;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Responsive Layout */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .intro, .login-card {
+    width: 100%;
+  }
+
+  .intro {
+    text-align: center;
+  }
+}
+
+/* Simple slide animation */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  } to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
