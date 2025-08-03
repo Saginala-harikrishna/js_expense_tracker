@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - Expense Tracker</title>
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="topbar">
+    <h1>Expense Tracker</h1>
+    <p class="date" id="currentDate"></p>
+    <button id="logoutBtn" title="Logout">🔁</button>
+  </header>
+
+  <main class="dashboard-container">
+    <!-- Add Expense Section -->
+    <section class="add-expense">
+      <h2>Add New Expense</h2>
+      <form id="expenseForm">
+        <label for="title">Expense Title</label>
+        <input type="text" id="title" placeholder="e.g. Rent" required />
+
+        <label for="amount">Amount ($)</label>
+        <input type="number" id="amount" min="0" step="0.01" required />
+
+        <label for="category">Category</label>
+        <select id="category">
+          <option value="Food">Food</option>
+          <option value="Travel">Travel</option>
+          <option value="Bills">Bills</option>
+          <option value="Other">Other</option>
+        </select>
+
+        <button type="submit" class="add-btn">+ Add Expense</button>
+      </form>
+    </section>
+
+    <!-- Expense History Section -->
+    <section class="expense-history">
+      <div class="expense-header">
+        <h2>Expense History</h2>
+        <div class="filters">
+          <button class="filter active">All</button>
+          <button class="filter">Food</button>
+          <button class="filter">Travel</button>
+          <button class="filter">Bills</button>
+          <button class="filter">Other</button>
+        </div>
+        <div class="search-sort">
+          <input type="text" id="searchBox" placeholder="Search expenses..." />
+          <select id="sortOrder">
+            <option value="newest">Newest First</option>
+            <option value="oldest">Oldest First</option>
+          </select>
+        </div>
+      </div>
+      <div id="expensesList" class="expenses-list">
+        <!-- Dynamic Expenses Go Here -->
+      </div>
+    </section>
+
+    <!-- Budget Overview -->
+    <section class="overview">
+      <h2>Budget Overview</h2>
+      <p>Total Spent: <span id="totalSpent" class="red">$0.00</span></p>
+      <p>Transactions: <span id="transactionCount">0</span></p>
+      <p>Budget Limit: <span id="budgetLimit" class="green">$0.00</span></p>
+      <div class="progress-bar">
+        <div id="progressFill"></div>
+      </div>
+      <p id="remainingText">$0.00 remaining</p>
+    </section>
+
+    <!-- Charts -->
+    <section class="charts">
+      <div>
+        <h2>Expenses by Category</h2>
+        <canvas id="categoryChart"></canvas>
+      </div>
+      <div>
+        <h2>Monthly Expense Trend</h2>
+        <canvas id="monthlyChart"></canvas>
+      </div>
+    </section>
+
+    <!-- Settings -->
+    <section class="settings">
+      <h2>Settings</h2>
+      <label for="budgetInput">Budget Limit ($)</label>
+      <div class="budget-input">
+        <input type="number" id="budgetInput" placeholder="Enter budget" />
+        <button id="setBudgetBtn">Set</button>
+      </div>
+      <button class="clear-btn" id="clearDataBtn">🗑️ Clear All Data</button>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f8f9fa;
+  color: #222;
+}
+
+.topbar {
+  background: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #e3e3e3;
+}
+
+.dashboard-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 1.5rem;
+  padding: 1.5rem 2rem;
+}
+
+/* Add Expense Form */
+.add-expense,
+.overview,
+.settings {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.add-expense h2,
+.overview h2,
+.settings h2,
+.expense-history h2 {
+  margin-bottom: 1rem;
+}
+
+.input,
+select {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 5px;
+  margin-bottom: 1rem;
+}
+
+.add-btn {
+  width: 100%;
+  background-color: #2563eb;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+/* Expense History List */
+.expense-history {
+  grid-column: span 2;
+}
+
+.expenses-list {
+  margin-top: 1rem;
+}
+
+.expense-card {
+  background: #fff;
+  padding: 1rem;
+  border-left: 5px solid #ccc;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+/* Budget Progress */
+.progress-bar {
+  height: 10px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+#progressFill {
+  height: 10px;
+  background-color: #2563eb;
+  border-radius: 5px;
+  width: 0%;
+}
+
+/* Charts */
+.charts {
+  grid-column: span 2;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+canvas {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+/* Utility */
+.red { color: red; }
+.green { color: green; }
+
+.clear-btn {
+  background-color: red;
+  color: white;
+  padding: 0.75rem;
+  width: 100%;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 5px;
+}
